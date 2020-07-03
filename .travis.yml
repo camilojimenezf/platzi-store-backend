@@ -1,0 +1,25 @@
+language: node_js
+cache:
+    directories:
+        - node_modules
+        - ~/ .npm
+node_js:
+    - '12'
+git:
+    depth: 3
+script:
+    - yarn test
+notifications:
+    email:
+        recipients:
+            - camilob270@gmail.com
+        on_success: always
+        on_failure: always
+deploy:
+    provide: heroku
+    skip_cleanup: true
+    keep_history: true
+    api_key: cb6af5bf-e1b4-4c32-806b-a541cddc2e5c
+    app: platzi-store-backend-travis
+    on:
+        repo: camilojimenezf/platzi-store-backend
